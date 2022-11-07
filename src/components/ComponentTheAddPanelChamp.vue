@@ -6,19 +6,19 @@
         <div class="panel-body">
             <div class="input-group margin-bottom">
                 <span class="input-group-addon">Name</span>
-                <input type="text" class="form-control" placeholder="Name" v-model="name" required/>
+                <input type="text" class="form-control" placeholder="Name" v-model="name" />
             </div>
             <div class="input-group margin-bottom">
                 <span class="input-group-addon">Nick</span>
-                <input type="text" class="form-control" placeholder="Nick" v-model="nick" required />
+                <input type="text" class="form-control" placeholder="Nick" v-model="nick" />
             </div>
             <div class="input-group margin-bottom">
                 <span class="input-group-addon">Max health</span>
-                <input type="number" class="form-control" placeholder="Max hp" v-model="hp" required/>
+                <input type="number" class="form-control" placeholder="Max hp" v-model="hp" />
             </div>
             <div class="input-group margin-bottom">
                 <span class="input-group-addon">Max mana</span>
-                <input type="number" class="form-control" placeholder="Max mana" v-model="mana" required/>
+                <input type="number" class="form-control" placeholder="Max mana" v-model="mana" />
             </div>
             <button 
                 type="button"
