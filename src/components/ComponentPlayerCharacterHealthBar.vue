@@ -5,13 +5,13 @@
                 :function-button="minusHp"
                 titleButton="Hit"
                 class="btn btn-danger"
-                :disabled="currentHp===0"
+                :disabled="health===0"
             />
             <ComponentButton 
                 :function-button="potion"
                 titleButton="Potion"
                 class="btn btn-success"
-                :disabled="currentHp===100"
+                :disabled="health===maxHealth"
             />
             <ComponentButton 
                 :function-button="respawn"
@@ -20,9 +20,9 @@
             />
         </section>
         <ComponentProgressBar 
-            :current-hp=currentHp
+            :health=health
             :health-bar-width=healthBarWidth
-            :max-hp=maxHp
+            :maxHealth=maxHealth
         />
     </div>
 </template>
@@ -33,33 +33,52 @@ export default {
     name: 'ComponentPlayerCharacterHealthBar',
     components: {
     ComponentButton,
-    ComponentProgressBar
+    ComponentProgressBar,
 },
+    props: {
+        health: {
+            type: [String, Number],
+            default() {
+                return 0
+            }
+        },
+        maxHealth: {
+            type: [String, Number],
+            default() {
+                return 100
+            }
+        },
+    },
     data: () => ({
-        currentHp: 100,
-        maxHp: 100,
         animated: true,
     }),
     methods: {
         minusHp(){
-            this.currentHp -= 10;
+            this.$emit('changeHp', this.health - 10)
         },
         potion(){
-            this.currentHp += 10;
+            this.$emit('changeHp', this.health + 10)
         },
         respawn(){
-            this.currentHp = this.maxHp;
+            this.$emit('changeHp', this.maxHealth)
         },
-        
+        changeMaxHp() {
+            this.$emit('changeMaxHp', this.maxHealth)
+        }
     },
     computed: {
         healthBarWidth(){
-            return (this.currentHp / this.maxHp) * 100 + '%'
+            return (this.health / this.maxHealth) * 100 + '%'
         }
     },
     watch:{
-        currentHp(value){
-            if(value < 0) {
+        health(value){
+            if(value < 0 || value > this.maxHealth) {
+                this.respawn();
+            }
+        },
+        maxHealth(value) {
+            if(value < this.health) {
                 this.respawn();
             }
         }

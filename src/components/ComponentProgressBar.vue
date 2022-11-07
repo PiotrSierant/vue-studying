@@ -2,9 +2,9 @@
     <div class="progress">
             <div class="progress-bar progress-bar-striped" 
             :class="[
-                currentHp <= 50 && 'progress-bar-warning', 
-                currentHp <= 30 && 'progress-bar-danger',
-                currentHp === 100 && 'progress-bar-success'
+                health <= maxHealth / 2 && 'progress-bar-warning', 
+                health <= maxHealth / 4 && 'progress-bar-danger',
+                health === maxHealth && 'progress-bar-success'
                 ]"
             role="progressbar" 
             aria-valuenow="100" 
@@ -12,7 +12,7 @@
             aria-valuemax="100" 
             :style="{ width: healthBarWidth }"
             >
-                {{currentHp}}/{{maxHp}}hp
+                {{health}}/{{maxHealth}}hp
             </div>
         </div>
 </template>
@@ -20,13 +20,13 @@
 export default {
     name: 'ComponentProgressBar',
     props: {
-        currentHp: {
+        health: {
             type: [Number, String],
             default() {
                 return ''
             }
         },
-        maxHp: {
+        maxHealth: {
             type: [Number, String],
             default() {
                 return ''
