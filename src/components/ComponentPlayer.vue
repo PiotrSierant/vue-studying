@@ -2,13 +2,13 @@
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <ComponentPlayerCharacterName 
+                <ComponentPlayerName 
                 :myName="playerName"
                 @handleChange="playerName = $event"/>
             </div>
             <div class="panel-body">
                 Your name: <input type="text" v-model="playerName" placeholder="Name"/>
-                <ComponentPlayerCharacterHealthBar 
+                <ComponentPlayerHealthBar 
                     :health="health"
                     :maxHealth="maxHealth"
                     @changeHp="health = $event"
@@ -21,23 +21,23 @@
             :maxHealth="maxHealth"
             @changeMaxHp="maxHealth = $event"
             @changeHp="health = $event"
-            />
+        />
     </div>
 </template>
 <script>
-import ComponentPlayerCharacterName from './ComponentPlayerCharacterName.vue';
-import ComponentPlayerCharacterHealthBar from './ComponentPlayerCharacterHealthBar.vue';
+import ComponentPlayerName from './ComponentPlayerName.vue';
+import ComponentPlayerHealthBar from './ComponentPlayerHealthBar.vue';
 import ComponentPlayerStatsModifier from './ComponentPlayerStatsModifier.vue';
 export default {
-    name: "ComponentPlayerCharacter",
+    name: "ComponentPlayer",
     data: () => ({
         playerName: '',
         health: 200,
         maxHealth: 200,
     }),
     components: { 
-        ComponentPlayerCharacterName,
-        ComponentPlayerCharacterHealthBar,
+        ComponentPlayerName,
+        ComponentPlayerHealthBar,
         ComponentPlayerStatsModifier,
      },
 }

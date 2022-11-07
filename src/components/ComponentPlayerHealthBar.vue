@@ -30,7 +30,7 @@
 import ComponentButton from './ComponentButton.vue';
 import ComponentProgressBar from './ComponentProgressBar.vue';
 export default {
-    name: 'ComponentPlayerCharacterHealthBar',
+    name: 'ComponentPlayerHealthBar',
     components: {
     ComponentButton,
     ComponentProgressBar,

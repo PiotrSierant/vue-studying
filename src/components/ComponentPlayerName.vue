@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-    name: 'ComponentPlayerCharacter',
+    name: 'ComponentPlayer',
     props: {
         myName: {
             type: String,

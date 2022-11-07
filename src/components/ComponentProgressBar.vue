@@ -3,8 +3,7 @@
             <div class="progress-bar progress-bar-striped" 
             :class="[
                 health <= maxHealth / 2 && 'progress-bar-warning', 
-                health <= maxHealth / 4 && 'progress-bar-danger',
-                health === maxHealth && 'progress-bar-success'
+                health <= maxHealth / 4 ? 'progress-bar-danger' : 'progress-bar-success'
                 ]"
             role="progressbar" 
             aria-valuenow="100" 
@@ -12,7 +11,7 @@
             aria-valuemax="100" 
             :style="{ width: healthBarWidth }"
             >
-                {{health}}/{{maxHealth}}hp
+                {{health}}hp / {{maxHealth}}hp
             </div>
         </div>
 </template>
@@ -37,7 +36,7 @@ export default {
             default() {
                 return ''
             }
-        }
+        },
     }
 }
 </script>

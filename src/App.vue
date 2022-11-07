@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ComponentPlayerCharacter from './components/ComponentPlayerCharacter.vue';
+import ComponentPlayerCharacter from './components/ComponentPlayer.vue';
 
 
 export default {
