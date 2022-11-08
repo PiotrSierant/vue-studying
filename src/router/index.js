@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ComponentContactDetails from '@/components/ComponentContactDetails.vue';
 import ComponentContactEdit from '@/components/ComponentContactEdit.vue';
+import ErrorView from '@/views/ErrorView.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -24,6 +25,15 @@ const routes = [
       { path: ':name', component: ComponentContactDetails, props: true, name: 'contact-name' },
       { path: ':name/edit', component: ComponentContactEdit}
     ]
+  },
+  {
+    path: '/error',
+    name: 'error',
+    component: ErrorView,
+  },
+  {
+    path: '/*',
+    redirect: '/error',
   }
 ]
 
