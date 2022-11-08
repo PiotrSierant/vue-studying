@@ -3,6 +3,7 @@
        <ComponentAnimation />
        <ComponentAnimation2 />
        <ComponentAnimation3 />
+       <ComponentAnimation4 />
   </div>
 </template>
 
@@ -10,12 +11,16 @@
 import ComponentAnimation from './components/ComponentAnimation.vue';
 import ComponentAnimation2 from './components/ComponentAnimation2.vue';
 import ComponentAnimation3 from './components/ComponentAnimation3.vue';
+import ComponentAnimation4 from './components/ComponentAnimation4.vue';
+
 export default {
     name: "App",
     components: {
       ComponentAnimation,
       ComponentAnimation2,
       ComponentAnimation3,
+      ComponentAnimation4,
+
     },
 }
 </script>
