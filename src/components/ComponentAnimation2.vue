@@ -31,8 +31,8 @@ export default {
 </script>
 <style scoped>
 .border {
-  border-bottom: .1rem dashed green;
-  border-top: 1px dashed green;
+  border-bottom: .1rem dashed darkgoldenrod;
+  border-top: 1px dashed darkgoldenrod;
   margin-bottom: 1rem;
 }
 .fade-bounce-enter, .fade-bounce-leave-to {
