@@ -3,7 +3,7 @@
         <ul class="nav nav-pills ">
             <router-link to="/" active-class="active" exact role="presentation" tag="li"><a>Home</a></router-link>
             <router-link to="/about" active-class="active" role="presentation" tag="li"><a>About</a></router-link>
-            <router-link to="/contact" active-class="active" role="presentation" tag="li"><a>Contact</a></router-link>
+            <router-link to="/contact/Piotr" active-class="active" role="presentation" tag="li"><a>Contact</a></router-link>
         </ul>
     </nav>
 </template>
