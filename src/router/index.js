@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import ComponentContactDetails from '@/components/ComponentContactDetails.vue';
+import ComponentContactEdit from '@/components/ComponentContactEdit.vue';
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,10 +17,13 @@ const routes = [
     component: () => import('../views/AboutView.vue')
   },
   {
-    path: '/contact/:name',
+    path: '/contact',
     name: 'contact',
     component: () => import('../views/ContactView.vue'),
-    props: true,
+    children: [
+      { path: ':name', component: ComponentContactDetails, props: true, name: 'contact-name' },
+      { path: ':name/edit', component: ComponentContactEdit}
+    ]
   }
 ]
 
