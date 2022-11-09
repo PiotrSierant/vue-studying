@@ -29,8 +29,8 @@
 export default {
   name: 'HomeView',
   computed: {
-    name(){
-      return this.$store.state.user.name
+    name() {
+            return this.$store.state.user.name
     },
     react(){
             return (this.$store.state.user.react) + '%'
@@ -51,6 +51,6 @@ export default {
   }
   .margin-top {
     width: 100%;
-    margin-top: 2rem;
+      margin-top: 2rem;
   }
 </style>
