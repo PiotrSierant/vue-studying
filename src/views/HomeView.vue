@@ -21,6 +21,7 @@
               {{node}}
           </div>
       </div></li>
+      <hr/>
     </div>
   </div>
 </template>
