@@ -9,12 +9,24 @@ Vue.use(BootstrapVue)
 //   alert('Klikniety')
 // }
 
+
+Vue.directive('font-size', {
+  update(element, binding) {
+    console.log(`Name of directive is: ${binding.name}`)
+    element.style.fontSize = `${binding.value}rem`;
+
+  },
+  bind(element, binding) {
+    element.style.textAlign = 'center';
+    element.style.fontSize = `${binding.value}rem`;
+  },
+})
+
 Vue.directive('padding', {
   bind(element) {
     // bind uzywamy do pojedynczego elementu, nie mamy dostępu do rodzica
     element.style.textAlign = 'center';
     element.style.fontSize = '4rem';
-
     // element.addEventListener('click', reaction);
   },
 
@@ -25,8 +37,8 @@ Vue.directive('padding', {
   },
 
   // unbind(element) {
-  //   usuwa zdarzenia przed usunieciem elementu z dom
-  //   element.removeEventListener('click', reaction);
+  // usuwa zdarzenia przed usunieciem elementu z dom
+  // element.removeEventListener('click', reaction);
   // },
   update(element) {
     console.log('update', element.innerHTML);

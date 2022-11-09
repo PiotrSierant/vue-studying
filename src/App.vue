@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <div>
-      <b-alert show variant="primary">Primary Alert</b-alert>
-      <b-alert show variant="secondary">Secondary Alert</b-alert>
-      <b-alert show variant="success">Success Alert</b-alert>
-      <b-alert show variant="danger">Danger Alert</b-alert>
-      <b-alert show variant="warning">Warning Alert</b-alert>
-      <b-alert show variant="info">Info Alert</b-alert>
-      <b-alert show variant="light">Light Alert</b-alert>
-      <b-alert show variant="dark">Dark Alert</b-alert>
-    </div>
+    <b-container>
+      <b-alert v-font-size="size" show variant="primary">
+        Primary Alert
+        <input type="text" v-model="size">
+      </b-alert>
+    </b-container>
   </div>
 </template>
 <script>
@@ -17,11 +13,9 @@ export default {
   name: 'app',
   data() {
     return {
-      visible: false,
-      whichName: true,
+      size: 2,
     }
   },
-
 }
 </script>
 <style>
