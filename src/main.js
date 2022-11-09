@@ -2,9 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 Vue.config.productionTip = false
 
-const reaction = () => {
-  alert('Klikniety')
-}
+// const reaction = () => {
+//   alert('Klikniety')
+// }
 
 Vue.directive('padding', {
   bind(element) {
@@ -12,7 +12,7 @@ Vue.directive('padding', {
     element.style.textAlign = 'center';
     element.style.fontSize = '4rem';
 
-    element.addEventListener('click', reaction);
+    // element.addEventListener('click', reaction);
   }, 
   
   inserted(element) {
@@ -21,9 +21,15 @@ Vue.directive('padding', {
     element.parentNode.style.backgroundColor = 'black';
   }, 
 
-  unbind(element) {
-    // usuwa zdarzenia przed usunieciem elementu z dom
-    element.removeEventListener('click', reaction);
+  // unbind(element) {
+  //   usuwa zdarzenia przed usunieciem elementu z dom
+  //   element.removeEventListener('click', reaction);
+  // },
+  update(element) {
+    console.log('update', element.innerHTML);
+  },
+  componentUpdated(element) {
+    console.log('ComponentUpdate', element.innerHTML);
   }
 })
 new Vue({
