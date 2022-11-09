@@ -1,23 +1,15 @@
 <template>
   <div id="app">
-    <ComponentNavigation />
-    <router-view/>
+    <h1>start</h1>
   </div>
 </template>
 <script>
-import ComponentNavigation from '@/components/ComponentNavigation.vue';
 export default {
   name: 'app',
-  components: {
-    ComponentNavigation,
-  },
 }
 </script>
 <style>
-#app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+body {
+  background-color: #888;
 }
 </style>
