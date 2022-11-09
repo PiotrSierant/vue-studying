@@ -5,6 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    user: {
+      name: 'Piotr',
+      react: 40,
+      vue: 30,
+      node: 20,
+    }
   },
   getters: {
   },
