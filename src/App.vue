@@ -3,7 +3,11 @@
     <b-container>
       <b-alert v-font-size="size" show variant="primary">
         Primary Alert
-        <input type="text" v-model="size">
+      </b-alert>
+      Change size <input type="number" v-model="size">
+      <hr>
+      <b-alert v-my-on:click="click" show variant="danger">
+        Click
       </b-alert>
     </b-container>
   </div>
@@ -16,6 +20,11 @@ export default {
       size: 2,
     }
   },
+  methods: {
+    click() {
+      alert('Hello! My new directive! I use args...')
+    }
+  }
 }
 </script>
 <style>

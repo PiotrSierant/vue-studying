@@ -9,6 +9,18 @@ Vue.use(BootstrapVue)
 //   alert('Klikniety')
 // }
 
+Vue.directive('my-on', {
+  bind(element, binding) {
+    element.addEventListener(binding.arg, binding.value);
+  },
+  update(element, binding) {
+    element.removeEventListener(binding.arg, binding.oldValue);
+    element.addEventListener(binding.arg, binding.value);
+  },
+  unbind(element, binding) {
+    element.removeEventListener(binding.arg, binding.oldValue);
+  }
+})
 
 Vue.directive('font-size', {
   update(element, binding) {
