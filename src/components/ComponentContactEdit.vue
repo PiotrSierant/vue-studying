@@ -15,6 +15,12 @@ export default {
                 return ''
             }
         }
+    },
+    beforeRouteLeave(to, from, next) {
+        if(confirm('Do you want exit?')){
+            next()
+        }
+        next(false)
     }
 };
 </script>
