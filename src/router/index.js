@@ -23,7 +23,17 @@ const routes = [
     component: () => import('../views/ContactView.vue'),
     children: [
       { path: ':name', component: ComponentContactDetails, props: true, name: 'contact-name' },
-      { path: ':name/edit', component: ComponentContactEdit}
+      { path: ':name/edit', component: ComponentContactEdit,
+        beforeEnter: (to, from, next) => {
+          const password = prompt('Password: ')
+          if(password === 'abc'){
+            next()
+          }
+          else {
+            next(false)
+          }
+        }
+      }
     ]
   },
   {
