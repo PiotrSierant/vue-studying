@@ -44,6 +44,12 @@ export default {
             default() {
                 return ''
             }
+        },
+        inheritedIsEditing: {
+            type: Boolean,
+            default() {
+                return false;
+            }
         }
     },
     computed: {
@@ -61,12 +67,18 @@ export default {
             const names = this.names.split(' ');
             this.$emit('save', {
                 name: names.shift(),
-                lastName: names.join(' ')
+                lastName: names.join(' '),
+                nodeId: this.nodeId,
             });
         },
     },
     mounted() {
         this.names = `${this.name} ${this.lastName}`;
+    },
+    watch: {
+        inheritedIsEditing(newVal) {
+            this.isEditing = newVal;
+        }
     }
 };
 </script>

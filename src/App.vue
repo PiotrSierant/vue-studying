@@ -9,7 +9,8 @@
 
         <b-row key="2" v-else>
           <b-col sm="4" v-for="(user, nodeId) in users" :key="nodeId">
-            <ComponentCardPlayer :name="user.name" :lastName="user.lastName" :nodeId="nodeId" @delete="remove" />
+            <ComponentCardPlayer :name="user.name" :lastName="user.lastName" :nodeId="nodeId" @delete="remove"
+              @save="save" :inheritedIsEditing="user['inheritedIsEditing'] === undefined" />
           </b-col>
         </b-row>
       </transition>
@@ -50,6 +51,22 @@ export default {
       }
       catch (error) {
         console.log(error.message)
+      }
+    },
+    async save({ name, lastName, nodeId }) {
+      try {
+        const userData = {
+          name,
+          lastName,
+        }
+        let { data } = await this.axios.patch(`https://vue-axios-5a565-default-rtdb.europe-west1.firebasedatabase.app/users/${nodeId}.json`, userData);
+        this.$set(this.users, nodeId, {
+          ...data,
+          inheritedIsEditing: true,
+        });
+      }
+      catch (error) {
+        console.log(error.message);
       }
     }
   },
