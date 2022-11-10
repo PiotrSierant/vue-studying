@@ -1,40 +1,38 @@
 <template>
-    <div>
-        <b-card header-tag="header" footer-tag="footer">
-            <h6 slot="header" class="mb-0"> Add user</h6>
-            <b-card-text>
-                <b-row class="my-1">
-                    <b-col sm="2">
-                        <label for="input-small">Name:</label>
-                    </b-col>
-                    <b-col sm="10">
-                        <b-form-input v-model="name" size="sm" placeholder="Enter your name"></b-form-input>
-                    </b-col>
-                </b-row>
-                <b-row class="my-1">
-                    <b-col sm="2">
-                        <label for="input-small">Last Name:</label>
-                    </b-col>
-                    <b-col sm="10">
-                        <b-form-input v-model="lastName" size="sm" placeholder="Enter your lastname"></b-form-input>
-                    </b-col>
-                </b-row>
-            </b-card-text>
-            <div class="footer">
-                <b-button href="#" variant="primary" :disabled="!canAdd" @click="add">Add user</b-button>
-            </div>
-        </b-card>
-    </div>
+    <b-card title="Podaj dane gracza" header-tag="header" footer-tag="footer">
+        <h6 slot="header" class="mb-0">Dodawanie gracza</h6>
+        <b-card-text>
+            <b-row class="my-1">
+                <b-col sm="2">
+                    <label for="input-small">Imię:</label>
+                </b-col>
+                <b-col sm="10">
+                    <b-form-input size="sm" type="text" v-model="name" placeholder="Podaj imię gracza" />
+                </b-col>
+            </b-row>
+
+            <b-row class="my-1">
+                <b-col sm="2">
+                    <label for="input-small">Nazwisko:</label>
+                </b-col>
+                <b-col sm="10">
+                    <b-form-input size="sm" type="text" v-model="lastName" placeholder="Podaj nazwisko gracza" />
+                </b-col>
+            </b-row>
+        </b-card-text>
+
+        <div slot="footer">
+            <b-button variant="primary" :disabled="!canAdd" @click="add">Dodaj</b-button>
+        </div>
+    </b-card>
 </template>
 
 <script>
 export default {
-    name: 'TheCardAdd',
-
     data() {
         return {
             name: '',
-            lastName: '',
+            lastName: ''
         };
     },
     computed: {
@@ -46,13 +44,9 @@ export default {
         add() {
             this.$emit('add', {
                 name: this.name,
-                lastName: this.lastName,
+                lastName: this.lastName
             });
         }
-    },
+    }
 };
 </script>
-
-<style scoped>
-
-</style>
