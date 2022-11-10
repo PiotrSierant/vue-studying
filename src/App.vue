@@ -12,12 +12,18 @@
       <b-alert v-my-on:click="click" show variant="danger" v-shadow="color">
         <input type="text" v-model="color">
       </b-alert>
+      <hr>
+      <ProjectZadanie01 />
     </b-container>
   </div>
 </template>
 <script>
+import ProjectZadanie01 from './components/Zadanie01.vue';
 export default {
   name: 'app',
+  components: {
+    ProjectZadanie01,
+  },
   data() {
     return {
       size: 2,
