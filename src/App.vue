@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { instance } from './axios-admin';
 import TheCardAdd from './components/TheCardAdd.vue';
 import ComponentCardPlayer from './components/ComponentCardPlayer.vue';
 export default {
@@ -35,7 +36,7 @@ export default {
   methods: {
     async add(userData) {
       try {
-        let { data } = await this.axios.post('https://vue-axios-5a565-default-rtdb.europe-west1.firebasedatabase.app/users.json', userData);
+        let { data } = await this.axios.post('/users.json', userData);
         this.$set(this.users, data.name, userData);
       } catch (error) {
         console.log(error.message)
@@ -46,7 +47,7 @@ export default {
         if (this.users[nodeId] === undefined) {
           throw 'NodeId doesnt exist';
         }
-        await this.axios.delete(`https://vue-axios-5a565-default-rtdb.europe-west1.firebasedatabase.app/users/${nodeId}.json`)
+        await this.axios.delete(`/users/${nodeId}.json`)
         this.$delete(this.users, nodeId);
       }
       catch (error) {
@@ -59,7 +60,7 @@ export default {
           name,
           lastName,
         }
-        let { data } = await this.axios.patch(`https://vue-axios-5a565-default-rtdb.europe-west1.firebasedatabase.app/users/${nodeId}.json`, userData);
+        let { data } = await this.axios.patch(`/users/${nodeId}.json`, userData);
         this.$set(this.users, nodeId, {
           ...data,
           inheritedIsEditing: true,
@@ -72,7 +73,7 @@ export default {
   },
   async created() {
     try {
-      let { data } = await this.axios.get('https://vue-axios-5a565-default-rtdb.europe-west1.firebasedatabase.app/users.json');
+      let { data } = await instance.get('/users.json');
       this.users = data
       this.loading = false;
     } catch (error) {
