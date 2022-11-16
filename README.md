@@ -1,4 +1,4 @@
-# project
+# testy-jednostkowe
 
 ## Project setup
 ```
