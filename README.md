@@ -1,4 +1,4 @@
-# testy-jednostkowe
+# vuetyfi
 
 ## Project setup
 ```

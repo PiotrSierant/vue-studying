@@ -1,14 +1,11 @@
 <template>
-  <div id="app">
-    Start dashboard
+  <div>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
 };
 </script>
-<style>
-
-</style>
